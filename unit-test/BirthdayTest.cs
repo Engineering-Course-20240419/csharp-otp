@@ -14,9 +14,29 @@ namespace unit_test
         [Test]
         public void is_birthday()
         {
-            Birthday birthday = new Birthday();
+            MockRepository mocks = new MockRepository();
+            Today stubToday = mocks.Stub<Today>();
+            Expect.Call(stubToday.GetToday()).Return(new DateTime(2024, 4, 9));
+            Birthday birthday = new Birthday(stubToday);
+            mocks.ReplayAll();
 
-            Assert.IsTrue(birthday.IsBirthday());
+            bool actual = birthday.IsBirthday();
+
+            Assert.IsTrue(actual);
+        }
+
+        [Test]
+        public void is_not_birthday()
+        {
+            MockRepository mocks = new MockRepository();
+            Today stubToday = mocks.Stub<Today>();
+            Expect.Call(stubToday.GetToday()).Return(new DateTime(2024, 5, 20));
+            Birthday birthday = new Birthday(stubToday);
+            mocks.ReplayAll();
+
+            bool actual = birthday.IsBirthday();
+
+            Assert.IsFalse(actual);
         }
 
     }

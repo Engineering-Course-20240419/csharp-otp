@@ -6,12 +6,20 @@ namespace csharp_otp
 {
     public class AuthenticationService
     {
+        private ProfileDao profileDao;
+        private RsaToken rsaToken;
+        private Logger logger;
+
+        public AuthenticationService(ProfileDao profileDao, RsaToken rsaToken, Logger logger)
+        {
+            this.profileDao = profileDao;
+            this.rsaToken = rsaToken;
+            this.logger = logger;
+        }
 
         public bool IsValid(string userName, string password)
         {
-            ProfileDao profileDao = new ProfileDao();
             string passwordFromDao = profileDao.GetPassword(userName);
-            RsaToken rsaToken = new RsaToken();
             string randomCode = rsaToken.GetRandom(userName);
             string validPassword = passwordFromDao + randomCode;
 
@@ -23,6 +31,7 @@ namespace csharp_otp
             }
             else
             {
+                logger.log("invalid login: " + userName);
                 return false;
             }
         }
