@@ -62,13 +62,14 @@ namespace unit_test
             Expect.Call(stubProfileDao.GetPassword(Arg<string>.Is.Anything)).Return("91");
             RsaToken stubRsaToken = mocks.Stub<RsaToken>();
             Expect.Call(stubRsaToken.GetRandom(Arg<string>.Is.Anything)).Return("123456");
-            MockLogger mockLogger = new MockLogger();
+            Logger mockLogger = mocks.DynamicMock<Logger>();
+            Expect.Call(delegate { mockLogger.log("invalid login: joey"); });
             AuthenticationService target = new AuthenticationService(stubProfileDao, stubRsaToken, mockLogger);
             mocks.ReplayAll();
 
             target.IsValid("joey", "91000000");
 
-            Assert.AreEqual("invalid login: joey", mockLogger._message);
+            mocks.VerifyAll();
         }
     }
 }
