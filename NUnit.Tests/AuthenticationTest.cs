@@ -6,30 +6,31 @@ using System.Text;
 using System.Threading.Tasks;
 using csharp_otp;
 using csharp_otp_2019;
+using Moq;
 using NUnit.Framework;
 
 namespace NUnit.Tests
 {
 
-    class StubProfileDao : ProfileDao
-    {
-        public override string GetPassword(string userName)
-        {
-            return Password;
-        }
+    // class StubProfileDao : ProfileDao
+    // {
+    //     public override string GetPassword(string userName)
+    //     {
+    //         return Password;
+    //     }
+    //
+    //     public string Password;
+    // }
 
-        public string Password;
-    }
-
-    class StubRsaToken : RsaToken
-    {
-        public override string GetRandom(string userName)
-        {
-            return Token;
-        }
-
-        public string Token;
-    }
+    // class StubRsaToken : RsaToken
+    // {
+    //     public override string GetRandom(string userName)
+    //     {
+    //         return Token;
+    //     }
+    //
+    //     public string Token;
+    // }
 
     class MockLogger : Logger
     {
@@ -47,12 +48,14 @@ namespace NUnit.Tests
         [Test]
         public void IsValid()
         {
-            StubProfileDao stubProfileDao = new StubProfileDao();
-            stubProfileDao.Password = "91";
-            StubRsaToken stubRsaToken = new StubRsaToken();
-            stubRsaToken.Token = "000000";
+            Mock<ProfileDao> stubProfileDao = new Mock<ProfileDao>();
+            // stubProfileDao.Password = "91";
+            stubProfileDao.Setup(p => p.GetPassword(It.IsAny<string>())).Returns("91");
+            Mock<RsaToken> stubRsaToken = new Mock<RsaToken>();
+            // stubRsaToken.Token = "000000";
+            stubRsaToken.Setup(r => r.GetRandom(It.IsAny<string>())).Returns("000000");
             Logger logger = new Logger();
-            AuthenticationService target = new AuthenticationService(stubProfileDao, stubRsaToken, logger);
+            AuthenticationService target = new AuthenticationService(stubProfileDao.Object, stubRsaToken.Object, logger);
 
             bool actual = target.IsValid("joey", "91000000");
 
@@ -62,12 +65,14 @@ namespace NUnit.Tests
         [Test]
         public void IsNotValid()
         {
-            StubProfileDao stubProfileDao = new StubProfileDao();
-            stubProfileDao.Password = "91";
-            StubRsaToken stubRsaToken = new StubRsaToken();
-            stubRsaToken.Token = "123456";
+            Mock<ProfileDao> stubProfileDao = new Mock<ProfileDao>();
+            // stubProfileDao.Password = "91";
+            stubProfileDao.Setup(p => p.GetPassword(It.IsAny<string>())).Returns("91");
+            Mock<RsaToken> stubRsaToken = new Mock<RsaToken>();
+            // stubRsaToken.Token = "123456";
+            stubRsaToken.Setup(r => r.GetRandom(It.IsAny<string>())).Returns("123456");
             Logger logger = new Logger();
-            AuthenticationService target = new AuthenticationService(stubProfileDao, stubRsaToken, logger);
+            AuthenticationService target = new AuthenticationService(stubProfileDao.Object, stubRsaToken.Object, logger);
 
             bool actual = target.IsValid("joey", "91000000");
 
@@ -77,12 +82,14 @@ namespace NUnit.Tests
         [Test]
         public void Log()
         {
-            StubProfileDao stubProfileDao = new StubProfileDao();
-            stubProfileDao.Password = "91";
-            StubRsaToken stubRsaToken = new StubRsaToken();
-            stubRsaToken.Token = "123456";
+            Mock<ProfileDao> stubProfileDao = new Mock<ProfileDao>();
+            // stubProfileDao.Password = "91";
+            stubProfileDao.Setup(p => p.GetPassword(It.IsAny<string>())).Returns("91");
+            Mock<RsaToken> stubRsaToken = new Mock<RsaToken>();
+            // stubRsaToken.Token = "123456";
+            stubRsaToken.Setup(r => r.GetRandom(It.IsAny<string>())).Returns("123456");
             MockLogger mockLogger = new MockLogger();
-            AuthenticationService target = new AuthenticationService(stubProfileDao, stubRsaToken, mockLogger);
+            AuthenticationService target = new AuthenticationService(stubProfileDao.Object, stubRsaToken.Object, mockLogger);
 
             target.IsValid("joey", "91000000");
 
