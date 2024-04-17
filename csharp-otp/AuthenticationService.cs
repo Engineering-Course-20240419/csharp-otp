@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using csharp_otp_2019;
 
 namespace csharp_otp
 {
@@ -8,11 +9,13 @@ namespace csharp_otp
     {
         private readonly ProfileDao _profileDao;
         private readonly RsaToken _rsaToken;
+        private readonly Logger _logger;
 
-        public AuthenticationService(ProfileDao profileDao, RsaToken rsaToken)
+        public AuthenticationService(ProfileDao profileDao, RsaToken rsaToken, Logger logger)
         {
             _profileDao = profileDao;
             _rsaToken = rsaToken;
+            _logger = logger;
         }
 
         public bool IsValid(string userName, string password)
@@ -29,6 +32,7 @@ namespace csharp_otp
             }
             else
             {
+                _logger.log("invalid login: " + userName);
                 return false;
             }
         }
