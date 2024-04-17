@@ -12,67 +12,49 @@ using NUnit.Framework;
 namespace NUnit.Tests
 {
 
-    // class StubProfileDao : ProfileDao
-    // {
-    //     public override string GetPassword(string userName)
-    //     {
-    //         return Password;
-    //     }
-    //
-    //     public string Password;
-    // }
-
-    // class StubRsaToken : RsaToken
-    // {
-    //     public override string GetRandom(string userName)
-    //     {
-    //         return Token;
-    //     }
-    //
-    //     public string Token;
-    // }
-
-    // class MockLogger : Logger
-    // {
-    //     public override void log(string message)
-    //     {
-    //         _message = message;
-    //     }
-    //
-    //     public string _message;
-    // }
-
     [TestFixture]
     class AuthenticationTest
     {
+        Mock<ProfileDao> stubProfileDao;
+        Mock<RsaToken> stubRsaToken;
+        Mock<Logger> mockLogger;
+        AuthenticationService target;
+
+        [SetUp]
+        public void setup()
+        {
+            stubProfileDao = new Mock<ProfileDao>();
+            stubRsaToken = new Mock<RsaToken>();
+            mockLogger = new Mock<Logger>();
+            target = new AuthenticationService(stubProfileDao.Object, stubRsaToken.Object, mockLogger.Object);
+        }
+
         [Test]
         public void IsValid()
         {
-            Mock<ProfileDao> stubProfileDao = new Mock<ProfileDao>();
-            // stubProfileDao.Password = "91";
-            stubProfileDao.Setup(p => p.GetPassword(It.IsAny<string>())).Returns("91");
-            Mock<RsaToken> stubRsaToken = new Mock<RsaToken>();
-            // stubRsaToken.Token = "000000";
-            stubRsaToken.Setup(r => r.GetRandom(It.IsAny<string>())).Returns("000000");
-            Logger logger = new Logger();
-            AuthenticationService target = new AuthenticationService(stubProfileDao.Object, stubRsaToken.Object, logger);
+            GivenPassword("91");
+            GivenToken("000000");
 
             bool actual = target.IsValid("joey", "91000000");
 
             Assert.IsTrue(actual);
         }
 
+        private void GivenToken(string token)
+        {
+            stubRsaToken.Setup(r => r.GetRandom(It.IsAny<string>())).Returns(token);
+        }
+
+        private void GivenPassword(string password)
+        {
+            stubProfileDao.Setup(p => p.GetPassword(It.IsAny<string>())).Returns(password);
+        }
+
         [Test]
         public void IsNotValid()
         {
-            Mock<ProfileDao> stubProfileDao = new Mock<ProfileDao>();
-            // stubProfileDao.Password = "91";
-            stubProfileDao.Setup(p => p.GetPassword(It.IsAny<string>())).Returns("91");
-            Mock<RsaToken> stubRsaToken = new Mock<RsaToken>();
-            // stubRsaToken.Token = "123456";
-            stubRsaToken.Setup(r => r.GetRandom(It.IsAny<string>())).Returns("123456");
-            Logger logger = new Logger();
-            AuthenticationService target = new AuthenticationService(stubProfileDao.Object, stubRsaToken.Object, logger);
+            GivenPassword("91");
+            GivenToken("123456");
 
             bool actual = target.IsValid("joey", "91000000");
 
@@ -82,18 +64,11 @@ namespace NUnit.Tests
         [Test]
         public void Log()
         {
-            Mock<ProfileDao> stubProfileDao = new Mock<ProfileDao>();
-            // stubProfileDao.Password = "91";
-            stubProfileDao.Setup(p => p.GetPassword(It.IsAny<string>())).Returns("91");
-            Mock<RsaToken> stubRsaToken = new Mock<RsaToken>();
-            // stubRsaToken.Token = "123456";
-            stubRsaToken.Setup(r => r.GetRandom(It.IsAny<string>())).Returns("123456");
-            Mock<Logger> mockLogger = new Mock<Logger>();
-            AuthenticationService target = new AuthenticationService(stubProfileDao.Object, stubRsaToken.Object, mockLogger.Object);
+            GivenPassword("91");
+            GivenToken("123456");
 
             target.IsValid("joey", "91000000");
 
-            // Assert.AreEqual("invalid login: joey", mockLogger._message);
             mockLogger.Verify(l => l.log("invalid login: joey"));
         }
     }

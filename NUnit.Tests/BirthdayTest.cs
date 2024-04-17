@@ -6,38 +6,37 @@ using System;
 namespace unit_test
 {
 
-    // class StubToday : Today
-    // {
-    //     public override DateTime GetToday()
-    //     {
-    //         return Today;
-    //     }
-    //
-    //     public DateTime Today;
-    // }
-
     [TestFixture]
     class BirthdayTest
     {
 
+        Mock<Today> stubToday;
+        Birthday birthday;
+
+        [SetUp]
+        public void setup()
+        {
+            stubToday = new Mock<Today>();
+            birthday = new Birthday(stubToday.Object);
+        }
+
         [Test]
         public void is_birthday()
         {
-            Mock<Today> stubToday = new Mock<Today>();
-            // stubToday.Today = new DateTime(2024, 4, 9);
-            stubToday.Setup(t => t.GetToday()).Returns(new DateTime(2024, 4, 9));
-            Birthday birthday = new Birthday(stubToday.Object);
+            GivenToday(4, 9);
 
             Assert.IsTrue(birthday.IsBirthday());
+        }
+
+        private void GivenToday(int month, int day)
+        {
+            stubToday.Setup(t => t.GetToday()).Returns(new DateTime(2024, month, day));
         }
 
         [Test]
         public void is_not_birthday()
         {
-            Mock<Today> stubToday = new Mock<Today>();
-            // stubToday.Today = new DateTime(2024, 5, 20);
-            stubToday.Setup(t => t.GetToday()).Returns(new DateTime(2024, 5, 20));
-            Birthday birthday = new Birthday(stubToday.Object);
+            GivenToday(5, 20);
 
             Assert.IsFalse(birthday.IsBirthday());
         }
