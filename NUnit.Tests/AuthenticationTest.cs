@@ -32,15 +32,15 @@ namespace NUnit.Tests
     //     public string Token;
     // }
 
-    class MockLogger : Logger
-    {
-        public override void log(string message)
-        {
-            _message = message;
-        }
-
-        public string _message;
-    }
+    // class MockLogger : Logger
+    // {
+    //     public override void log(string message)
+    //     {
+    //         _message = message;
+    //     }
+    //
+    //     public string _message;
+    // }
 
     [TestFixture]
     class AuthenticationTest
@@ -88,12 +88,13 @@ namespace NUnit.Tests
             Mock<RsaToken> stubRsaToken = new Mock<RsaToken>();
             // stubRsaToken.Token = "123456";
             stubRsaToken.Setup(r => r.GetRandom(It.IsAny<string>())).Returns("123456");
-            MockLogger mockLogger = new MockLogger();
-            AuthenticationService target = new AuthenticationService(stubProfileDao.Object, stubRsaToken.Object, mockLogger);
+            Mock<Logger> mockLogger = new Mock<Logger>();
+            AuthenticationService target = new AuthenticationService(stubProfileDao.Object, stubRsaToken.Object, mockLogger.Object);
 
             target.IsValid("joey", "91000000");
 
-            Assert.AreEqual("invalid login: joey", mockLogger._message);
+            // Assert.AreEqual("invalid login: joey", mockLogger._message);
+            mockLogger.Verify(l => l.log("invalid login: joey"));
         }
     }
 }
