@@ -6,13 +6,19 @@ namespace csharp_otp
 {
     public class AuthenticationService
     {
+        private readonly ProfileDao _profileDao;
+        private readonly RsaToken _rsaToken;
+
+        public AuthenticationService(ProfileDao profileDao, RsaToken rsaToken)
+        {
+            _profileDao = profileDao;
+            _rsaToken = rsaToken;
+        }
 
         public bool IsValid(string userName, string password)
         {
-            ProfileDao profileDao = new ProfileDao();
-            string passwordFromDao = profileDao.GetPassword(userName);
-            RsaToken rsaToken = new RsaToken();
-            string randomCode = rsaToken.GetRandom(userName);
+            string passwordFromDao = _profileDao.GetPassword(userName);
+            string randomCode = _rsaToken.GetRandom(userName);
             string validPassword = passwordFromDao + randomCode;
 
             bool isValid = password == validPassword;
