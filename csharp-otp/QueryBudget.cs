@@ -25,11 +25,12 @@ namespace csharp_otp_2019
 
             var budget = _budgetRepo.GetAll()[0];
             var realStart = start > budget.GetStart() ? start : budget.GetStart();
+            var realEnd = end < budget.GetEnd() ? end : budget.GetEnd();
             if (start > budget.GetEnd())
             {
                 return 0;
             }
-            return (end - realStart).Days + 1;
+            return (realEnd - realStart).Days + 1;
         }
     }
 }
