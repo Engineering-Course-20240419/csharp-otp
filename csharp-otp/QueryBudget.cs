@@ -22,7 +22,10 @@ namespace csharp_otp_2019
             {
                 return 0;
             }
-            return (end - start).Days + 1;
+
+            var budget = _budgetRepo.GetAll()[0];
+            var realStart = start > budget.GetStart() ? start : budget.GetStart();
+            return (end - realStart).Days + 1;
         }
     }
 }

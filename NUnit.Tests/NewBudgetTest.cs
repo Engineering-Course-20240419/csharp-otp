@@ -45,7 +45,7 @@ namespace NUnit.Tests
         {
             GivenBudgets(new Budget
             {
-                YearMonth = "202404",
+                YearMonth = "2024-04",
                 Amount = 30
             });
             
@@ -61,7 +61,7 @@ namespace NUnit.Tests
         {
             GivenBudgets(new Budget
             {
-                YearMonth = "202404",
+                YearMonth = "2024-04",
                 Amount = 30
             });
             
@@ -70,6 +70,22 @@ namespace NUnit.Tests
                 new DateTime(2024, 4, 21));
 
             Assert.AreEqual(2, actual);
+        }
+        
+        [Test]
+        public void StartBeforeBudgetStart()
+        {
+            GivenBudgets(new Budget
+            {
+                YearMonth = "2024-04",
+                Amount = 30
+            });
+            
+            var actual = queryBudget.query(
+                new DateTime(2024, 3, 20), 
+                new DateTime(2024, 4, 15));
+        
+            Assert.AreEqual(15, actual);
         }
     }
 }

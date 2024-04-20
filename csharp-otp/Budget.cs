@@ -8,5 +8,10 @@ namespace csharp_otp
     {
         public string YearMonth;
         public int Amount;
+
+        public DateTime GetStart()
+        {
+            return DateTime.Parse(YearMonth + "-01");
+        }
     }
 }
