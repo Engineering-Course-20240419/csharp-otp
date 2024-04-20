@@ -49,6 +49,7 @@
     <Compile Include="Logger.cs" />
     <Compile Include="ProfileDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryBudget.cs" />
     <Compile Include="RsaToken.cs" />
     <Compile Include="Today.cs" />
   </ItemGroup>

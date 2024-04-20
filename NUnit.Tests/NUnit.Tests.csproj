@@ -47,6 +47,7 @@
     <Compile Include="BirthdayTest.cs" />
     <Compile Include="AuthenticationServiceTest.cs" />
     <Compile Include="BudgetTest.cs" />
+    <Compile Include="NewBudgetTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
