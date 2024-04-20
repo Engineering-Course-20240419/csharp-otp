@@ -119,5 +119,21 @@ namespace NUnit.Tests
         
             Assert.AreEqual(0, actual);
         }
+
+        [Test]
+        public void EndBeforeBudgetEnd()
+        {
+            GivenBudgets(new Budget
+            {
+                YearMonth = "2024-04",
+                Amount = 30
+            });
+            
+            var actual = queryBudget.query(
+                new DateTime(2024, 3, 20), 
+                new DateTime(2024, 4, 16));
+        
+            Assert.AreEqual(16, actual);
+        }
     }
 }
