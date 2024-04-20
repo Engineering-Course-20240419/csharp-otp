@@ -28,7 +28,9 @@ namespace NUnit.Tests
         {
             GivenBudgets();
 
-            var actual = queryBudget.query(new DateTime(2024, 4, 20), new DateTime(2024, 4, 21));
+            var actual = queryBudget.query(
+                new DateTime(2024, 4, 20), 
+                new DateTime(2024, 4, 21));
 
             Assert.AreEqual(0, actual);
         }
@@ -39,7 +41,7 @@ namespace NUnit.Tests
         }
 
         [Test]
-        public void xxx()
+        public void StartAfterBudgetStart()
         {
             GivenBudgets(new Budget
             {
@@ -47,9 +49,27 @@ namespace NUnit.Tests
                 Amount = 30
             });
             
-            var actual = queryBudget.query(new DateTime(2024, 4, 20), new DateTime(2024, 4, 20));
+            var actual = queryBudget.query(
+                new DateTime(2024, 4, 20), 
+                new DateTime(2024, 4, 20));
 
             Assert.AreEqual(1, actual);
+        }
+
+        [Test]
+        public void StartAfterBudgetStartMoreThanOneDay()
+        {
+            GivenBudgets(new Budget
+            {
+                YearMonth = "202404",
+                Amount = 30
+            });
+            
+            var actual = queryBudget.query(
+                new DateTime(2024, 4, 20), 
+                new DateTime(2024, 4, 21));
+
+            Assert.AreEqual(2, actual);
         }
     }
 }

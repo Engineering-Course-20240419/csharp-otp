@@ -22,7 +22,7 @@ namespace csharp_otp_2019
             {
                 return 0;
             }
-            return 1;
+            return (end - start).Days + 1;
         }
     }
 }
