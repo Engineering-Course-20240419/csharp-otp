@@ -13,5 +13,10 @@ namespace csharp_otp
         {
             return DateTime.Parse(YearMonth + "-01");
         }
+
+        public DateTime GetEnd()
+        {
+            return GetStart().AddMonths(1).AddDays(-1);
+        }
     }
 }
