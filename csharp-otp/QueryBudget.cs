@@ -18,19 +18,23 @@ namespace csharp_otp_2019
 
         public int query(DateTime start, DateTime end)
         {
-            if (_budgetRepo.GetAll().Count == 0)
-            {
-                return 0;
-            }
+            return _budgetRepo.GetAll().Sum(budget => 
+                getOverlappingDayCount(start, end, budget));
+        }
 
-            var budget = _budgetRepo.GetAll()[0];
+        private int getOverlappingDayCount(DateTime start, DateTime end, Budget budget)
+        {
+
             var realStart = start > budget.GetStart() ? start : budget.GetStart();
             var realEnd = end < budget.GetEnd() ? end : budget.GetEnd();
-            if (start > budget.GetEnd())
+            if (start > budget.GetEnd() || end < budget.GetStart())
             {
                 return 0;
             }
-            return (realEnd - realStart).Days + 1;
+            else
+            {
+                return (realEnd - realStart).Days + 1;
+            }
         }
     }
 }
