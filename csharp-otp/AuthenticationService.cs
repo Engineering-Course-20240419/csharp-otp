@@ -10,6 +10,7 @@ namespace csharp_otp
         private readonly ProfileDao _profileDao;
         private readonly RsaToken _rsaToken;
         private readonly Logger _logger;
+        private static AuthenticationService _instance;
 
         public AuthenticationService(ProfileDao profileDao, RsaToken rsaToken, Logger logger)
         {
@@ -18,7 +19,21 @@ namespace csharp_otp
             _logger = logger;
         }
 
-        public bool IsValid(string userName, string password)
+        public AuthenticationService() : this(new ProfileDao(), new RsaToken(), new Logger())
+        {
+        }
+
+        public static AuthenticationService GetIns()
+        {
+            // if (_instance == null)
+            // {
+            //     _instance = new AuthenticationService();
+            // }
+
+            return _instance;
+        }
+
+        public virtual bool IsValid(string userName, string password)
         {
             string passwordFromDao = _profileDao.GetPassword(userName);
             string randomCode = _rsaToken.GetRandom(userName);
