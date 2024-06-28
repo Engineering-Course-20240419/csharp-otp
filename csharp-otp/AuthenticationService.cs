@@ -25,10 +25,10 @@ namespace csharp_otp
 
         public static AuthenticationService GetIns()
         {
-            // if (_instance == null)
-            // {
-            //     _instance = new AuthenticationService();
-            // }
+            if (_instance == null)
+            {
+                _instance = new AuthenticationService();
+            }
 
             return _instance;
         }

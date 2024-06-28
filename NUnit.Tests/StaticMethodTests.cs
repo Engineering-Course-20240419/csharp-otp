@@ -9,7 +9,7 @@ namespace NUnit.Tests
     public class StaticMethodTests
     {
         [Test]
-        public void GetIns()
+        public void GetIns_Moq_Poser()
         {
             var mock = new Mock<AuthenticationService>();
             mock.Setup(x => x.IsValid(It.IsAny<string>(), It.IsAny<string>())).Returns(true);
