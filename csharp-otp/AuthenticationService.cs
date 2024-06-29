@@ -19,7 +19,7 @@ namespace csharp_otp
             _logger = logger;
         }
 
-        public AuthenticationService() : this(new ProfileDao(), new RsaToken(), new Logger())
+        public AuthenticationService() : this(null, null, null)
         {
         }
 
@@ -33,7 +33,7 @@ namespace csharp_otp
             return _instance;
         }
 
-        public virtual bool IsValid(string userName, string password)
+        public bool IsValid(string userName, string password)
         {
             string passwordFromDao = _profileDao.GetPassword(userName);
             string randomCode = _rsaToken.GetRandom(userName);
