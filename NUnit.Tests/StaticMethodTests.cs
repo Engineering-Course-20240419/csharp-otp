@@ -26,5 +26,21 @@ namespace NUnit.Tests
 
             Assert.IsTrue(actual);
         }
+
+        [Test]
+        public void GetIns_All_Poser()
+        {
+            var isValidShim = Pose.Shim.Replace(() => Pose.Is.A<AuthenticationService>().IsValid(Pose.Is.A<string>(), Pose.Is.A<string>()))
+                .With(delegate(AuthenticationService @this, string userName, string password) { return true; });
+            var getInsShim = Pose.Shim.Replace(() => AuthenticationService.GetIns()).With(() => new AuthenticationService());
+            bool actual = false;
+            Pose.PoseContext.Isolate(() =>
+            {
+                var authenticationService = AuthenticationService.GetIns();
+                actual = authenticationService.IsValid("joey", "91000000");
+            }, isValidShim, getInsShim);
+
+            Assert.IsTrue(actual);
+        }
     }
 }
