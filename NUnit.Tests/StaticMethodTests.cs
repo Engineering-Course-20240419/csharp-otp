@@ -1,5 +1,6 @@
 ﻿using System;
 using csharp_otp;
+using csharp_otp_2019;
 using Moq;
 using NUnit.Framework;
 
@@ -41,6 +42,21 @@ namespace NUnit.Tests
             }, isValidShim, getInsShim);
 
             Assert.IsTrue(actual);
+        }
+
+        [Test]
+        public void Mock_Interface_Poser()
+        {
+            var stubUser = new Mock<IUser>();
+            stubUser.Setup(x => x.GetUsername()).Returns("hello");
+            var shim = Pose.Shim.Replace(() => UserFactory.GetInstance()).With(delegate() { return stubUser.Object;});
+            IUser a = null;
+            Pose.PoseContext.Isolate(() =>
+            {
+                a = UserFactory.GetInstance();
+            }, shim);
+
+            Assert.AreEqual("hello", a.GetUsername());
         }
     }
 }
