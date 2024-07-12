@@ -40,5 +40,278 @@
         <member name="P:csharp_otp.Fakes.ShimAuthenticationService.IsValidStringString">
             <summary>Sets the Shim of AuthenticationService.IsValid(String userName, String password)</summary>
         </member>
+        <member name="T:csharp_otp.Fakes.StubAuthenticationService">
+            <summary>Stub type of csharp_otp.AuthenticationService</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubAuthenticationService.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubAuthenticationService.#ctor(csharp_otp.ProfileDao,csharp_otp.RsaToken,csharp_otp_2019.Logger)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubAuthenticationService.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubAuthenticationService.InitializeStub">
+            <summary>Initializes a new instance of type StubAuthenticationService</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubAuthenticationService.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubAuthenticationService.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:csharp_otp.Fakes.StubBirthday">
+            <summary>Stub type of csharp_otp.Birthday</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubBirthday.#ctor(csharp_otp.Today)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubBirthday.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubBirthday.InitializeStub">
+            <summary>Initializes a new instance of type StubBirthday</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubBirthday.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubBirthday.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:csharp_otp.Fakes.StubBudget">
+            <summary>Stub type of csharp_otp.Budget</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubBudget.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubBudget.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubBudget.InitializeStub">
+            <summary>Initializes a new instance of type StubBudget</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubBudget.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubBudget.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:csharp_otp.Fakes.StubBudgetService">
+            <summary>Stub type of csharp_otp.BudgetService</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubBudgetService.#ctor(csharp_otp.IBudgetRepo)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubBudgetService.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubBudgetService.InitializeStub">
+            <summary>Initializes a new instance of type StubBudgetService</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubBudgetService.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubBudgetService.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:csharp_otp.Fakes.StubIBudgetRepo">
+            <summary>Stub type of csharp_otp.IBudgetRepo</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubIBudgetRepo.#ctor">
+            <summary>Initializes a new instance of type StubIBudgetRepo</summary>
+        </member>
+        <member name="F:csharp_otp.Fakes.StubIBudgetRepo.GetAll">
+            <summary>Sets the stub of IBudgetRepo.GetAll()</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubIBudgetRepo.csharp_otp#IBudgetRepo#GetAll">
+            <summary>Sets the Stub of IBudgetRepo.GetAll()</summary>
+        </member>
+        <member name="T:csharp_otp.Fakes.StubProfileDao">
+            <summary>Stub type of csharp_otp.ProfileDao</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubProfileDao.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubProfileDao.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubProfileDao.GetPassword(System.String)">
+            <summary>Sets the Stub of ProfileDao.GetPassword(String userName)</summary>
+        </member>
+        <member name="F:csharp_otp.Fakes.StubProfileDao.GetPasswordString">
+            <summary>Sets the stub of ProfileDao.GetPassword(String userName)</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubProfileDao.InitializeStub">
+            <summary>Initializes a new instance of type StubProfileDao</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubProfileDao.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubProfileDao.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:csharp_otp.Fakes.StubRsaToken">
+            <summary>Stub type of csharp_otp.RsaToken</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubRsaToken.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubRsaToken.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubRsaToken.GetRandom(System.String)">
+            <summary>Sets the Stub of RsaToken.GetRandom(String userName)</summary>
+        </member>
+        <member name="F:csharp_otp.Fakes.StubRsaToken.GetRandomString">
+            <summary>Sets the stub of RsaToken.GetRandom(String userName)</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubRsaToken.InitializeStub">
+            <summary>Initializes a new instance of type StubRsaToken</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubRsaToken.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubRsaToken.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:csharp_otp.Fakes.StubToday">
+            <summary>Stub type of csharp_otp.Today</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubToday.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubToday.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubToday.GetToday">
+            <summary>Sets the Stub of Today.GetToday()</summary>
+        </member>
+        <member name="F:csharp_otp.Fakes.StubToday.GetToday01">
+            <summary>Sets the stub of Today.GetToday()</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.StubToday.InitializeStub">
+            <summary>Initializes a new instance of type StubToday</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubToday.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.StubToday.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:csharp_otp_2019.Fakes.ShimUserFactory">
+            <summary>Shim type of csharp_otp_2019.UserFactory</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.ShimUserFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.ShimUserFactory.#ctor(csharp_otp_2019.UserFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:csharp_otp_2019.Fakes.ShimUserFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.ShimUserFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.ShimUserFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.ShimUserFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.ShimUserFactory.Constructor">
+            <summary>Sets the Shim of UserFactory.UserFactory()</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.ShimUserFactory.GetInstance">
+            <summary>Sets the Shim of UserFactory.GetInstance()</summary>
+        </member>
+        <member name="T:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser">
+            <summary>Shim type of csharp_otp_2019.UserFactory+User</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser.#ctor(csharp_otp_2019.UserFactory.User)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser.AllInstances.GetUsername">
+            <summary>Sets the Shim of User.GetUsername()</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser.Bind(csharp_otp_2019.IUser)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser.Constructor">
+            <summary>Sets the Shim of User.User()</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.ShimUserFactory.ShimUser.GetUsername">
+            <summary>Sets the Shim of User.GetUsername()</summary>
+        </member>
+        <member name="T:csharp_otp_2019.Fakes.StubIUser">
+            <summary>Stub type of csharp_otp_2019.IUser</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.StubIUser.#ctor">
+            <summary>Initializes a new instance of type StubIUser</summary>
+        </member>
+        <member name="F:csharp_otp_2019.Fakes.StubIUser.GetUsername">
+            <summary>Sets the stub of IUser.GetUsername()</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.StubIUser.csharp_otp_2019#IUser#GetUsername">
+            <summary>Sets the Stub of IUser.GetUsername()</summary>
+        </member>
+        <member name="T:csharp_otp_2019.Fakes.StubLogger">
+            <summary>Stub type of csharp_otp_2019.Logger</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.StubLogger.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.StubLogger.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.StubLogger.InitializeStub">
+            <summary>Initializes a new instance of type StubLogger</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.StubLogger.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.StubLogger.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="F:csharp_otp_2019.Fakes.StubLogger.LogString">
+            <summary>Sets the stub of Logger.log(String message)</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.StubLogger.log(System.String)">
+            <summary>Sets the Stub of Logger.log(String message)</summary>
+        </member>
+        <member name="T:csharp_otp_2019.Fakes.StubUserFactory">
+            <summary>Stub type of csharp_otp_2019.UserFactory</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.StubUserFactory.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.StubUserFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="M:csharp_otp_2019.Fakes.StubUserFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubUserFactory</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.StubUserFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:csharp_otp_2019.Fakes.StubUserFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
     </members>
 </doc>

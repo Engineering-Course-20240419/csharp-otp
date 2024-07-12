@@ -1,7 +1,10 @@
 ﻿using csharp_otp;
 using csharp_otp.Fakes;
+using csharp_otp_2019;
+using csharp_otp_2019.Fakes;
 using Microsoft.QualityTools.Testing.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System;
 using System.Runtime.Remoting.Messaging;
 
@@ -27,5 +30,22 @@ namespace MsFakes
                 Assert.IsTrue(actual);
             }
         }
+        
+        [TestMethod]
+        public void Mock_Interface_Poser()
+        {
+            var stubUser = new Mock<IUser>();
+            stubUser.Setup(x => x.GetUsername()).Returns("hello");
+
+            using (ShimsContext.Create())
+            {
+                ShimUserFactory.GetInstance = () => stubUser.Object;
+
+                var actual = UserFactory.GetInstance().GetUsername();
+
+                Assert.AreEqual("hello", actual);
+            }
+        }
+
     }
 }
