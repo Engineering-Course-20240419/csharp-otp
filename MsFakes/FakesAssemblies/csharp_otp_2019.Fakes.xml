@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>csharp_otp_2019.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:csharp_otp.Fakes.ShimAuthenticationService">
+            <summary>Shim type of csharp_otp.AuthenticationService</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.ShimAuthenticationService.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.ShimAuthenticationService.#ctor(csharp_otp.AuthenticationService)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="T:csharp_otp.Fakes.ShimAuthenticationService.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.ShimAuthenticationService.AllInstances.IsValidStringString">
+            <summary>Sets the Shim of AuthenticationService.IsValid(String userName, String password)</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.ShimAuthenticationService.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:csharp_otp.Fakes.ShimAuthenticationService.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.ShimAuthenticationService.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.ShimAuthenticationService.Constructor">
+            <summary>Sets the Shim of AuthenticationService.AuthenticationService()</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.ShimAuthenticationService.ConstructorProfileDaoRsaTokenLogger">
+            <summary>Sets the Shim of AuthenticationService.AuthenticationService(ProfileDao profileDao, RsaToken rsaToken, Logger logger)</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.ShimAuthenticationService.GetIns">
+            <summary>Sets the Shim of AuthenticationService.GetIns()</summary>
+        </member>
+        <member name="P:csharp_otp.Fakes.ShimAuthenticationService.IsValidStringString">
+            <summary>Sets the Shim of AuthenticationService.IsValid(String userName, String password)</summary>
+        </member>
+    </members>
+</doc>
