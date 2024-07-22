@@ -24,3 +24,9 @@ You can run tests in VS2019 or run it powershell:
 ```powershell
 nunit3-console.exe --framework=net-4.5.1 ".\NUnit.Tests\bin\Debug\NUnit.Tests.dll"
 ```
+
+To get the code coverage:
+```powershell
+dotnet-coverage.exe collect --output-format xml --settings .\code_coverage_config.xml -- dotnet test .\NUnit.Tests\bin\Debug\NUnit.Tests.dll
+reportgenerator.exe -reports:.\output.xml -targetdir:coverage_report -reporttypes:Html
+```

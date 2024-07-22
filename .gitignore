@@ -3,3 +3,5 @@ bin/
 obj/
 TestResult.xml
 .vs
+coverage_report
+output.xml
