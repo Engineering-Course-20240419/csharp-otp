@@ -8,7 +8,13 @@ namespace csharp_otp_2019
 {
     public class Dependency
     {
-        public static PublicStaticMember PublicStaticMember = new PublicStaticMember("first member created");
+        public static PublicStaticMember _PublicStaticMember = new PublicStaticMember("exception throw");
+        //public static PublicStaticMember PublicStaticMember;
+
+        //static Dependency()
+        //{
+        //    PublicStaticMember = new PublicStaticMember("first member created");
+        //}
 
         public static PublicStaticMember PublicStaticMember2 = new PublicStaticMember("second member created");
 

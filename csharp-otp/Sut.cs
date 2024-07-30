@@ -10,7 +10,7 @@ namespace csharp_otp_2019
     {
         public void Action()
         {
-            Dependency.PublicStaticMember2.Log();
+            Dependency._PublicStaticMember.Log();
         }
     }
 }
