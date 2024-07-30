@@ -51,7 +51,10 @@
     <Compile Include="Logger.cs" />
     <Compile Include="ProfileDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicStaticMember.cs" />
     <Compile Include="RsaToken.cs" />
+    <Compile Include="Dependency.cs" />
+    <Compile Include="Sut.cs" />
     <Compile Include="UserFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

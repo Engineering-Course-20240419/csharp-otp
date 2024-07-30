@@ -58,6 +58,7 @@
     <Compile Include="StaticMethodTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CodeCoverage.runsettings" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
